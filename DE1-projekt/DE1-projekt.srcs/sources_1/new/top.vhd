@@ -45,6 +45,7 @@ entity top is
            CG : out STD_LOGIC;
            DP : out STD_LOGIC;
            AN : out STD_LOGIC_VECTOR (7 downto 0);
+           BTNR : in STD_LOGIC;
            BTNC : in STD_LOGIC);
            
 end top;
@@ -56,21 +57,28 @@ end top;
 ----------------------------------------------------------
 architecture behavioral of top is
  signal clk_1sec : std_logic;
- signal sig_1sec : unsigned (3 downto 0);
- signal sig_10sec : unsigned (3 downto 0);
- signal sig_100sec : unsigned (3 downto 0);
+ signal sig_1sec : unsigned (3 downto 0) := (others => '0');
+ signal sig_10sec : unsigned (3 downto 0) := (others => '0');
+ signal sig_100sec : unsigned (3 downto 0) := (others => '0');
+ signal sig_seconds : integer := 10;
+ signal sig_round : integer := 9;
+ signal sig_round_time : integer := 9;
+ signal sig_break_time : integer := 5;
  
  signal sig_1sec_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal sig_10sec_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal sig_100sec_vector : STD_LOGIC_VECTOR (3 downto 0);
+ 
+ signal sig_round_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal setup : STD_LOGIC; 
+ 
 
 type t_state is (
-    SETUP_STATE,
     SETUP_ROUND,
     SETUP_ROUND_TIME,
     SETUP_BRAKE_TIME,
-    RUN
+    RUN_BREAK,
+    RUN_ROUND
     );
     
 signal sigstate: t_state; 
@@ -98,10 +106,18 @@ begin
       port map (
           clk      => CLK100MHZ,
           rst      => BTNC,
-          data3(3) => '0',
-          data3(2) => '0',
-          data3(1) => '0',
-          data3(0) => '0',
+          
+
+          
+          data6(3) => sig_round_vector(3),
+          data6(2) => sig_round_vector(2),
+          data6(1) => sig_round_vector(1),
+          data6(0) => sig_round_vector(0),
+          
+          data7 => "1111",
+          data5 => "1111",
+          data4 => "1111",
+          data3 => "1111",
           
           data2(3) => sig_100sec_vector(3),
           data2(2) => sig_100sec_vector(2),
@@ -132,11 +148,11 @@ begin
 
 
           -- DECIMAL POINT
-          dp_vect => "0111",
+          dp_vect => "11111111",
           dp      => DP,
 
           -- DIGITS
-          dig(3 downto 0) => AN(3 downto 0)
+          dig(7 downto 0) => AN(7 downto 0)
       );
 
   timer : process (clk_1sec) is
@@ -144,47 +160,47 @@ begin
  
   begin
   
+  
   if (BTNC = '1') then
-    sigstate <= SETUP_STATE;
-    
-        sig_1sec <= "0010";
-         sig_10sec <= "0010";
-         sig_100sec <= "0011";
+         
   end if;
-  
-  case sigstate is
-  
-  when SETUP_STATE =>
-  when SETUP_ROUND => 
-  when SETUP_ROUND_TIME =>
-  when SETUP_BRAKE_TIME =>
-  when RUN =>
-   
-  
-  
-  end case;
   
   
        if (rising_edge(clk_1sec)) then
-        sig_1sec <= sig_1sec - 1;
-           if(sig_1sec < "0001") then
-            sig_1sec <= "1001";
-             sig_10sec <= sig_10sec - 1;
-              if(sig_10sec < "0001") then
-                sig_10sec <= "1001";
-                sig_100sec <= sig_100sec - 1;
-                  if(sig_100sec < "0001") then
-                   sig_100sec <= "1001";
-                  end if;     
-              end if;     
-           end if;         
+        if (BTNR = '1') then
+         sigstate <= RUN_ROUND;
+  end if;
+         case sigstate is
+  
+  when SETUP_ROUND => 
+  when SETUP_ROUND_TIME =>
+  when SETUP_BRAKE_TIME =>
+  when RUN_ROUND =>
+    sig_seconds <= sig_seconds -1;
+    if sig_seconds = 0 then
+         sigstate <= RUN_BREAK;
+         sig_seconds <= sig_break_time;
+    end if;
+  when RUN_BREAK => 
+   sig_seconds <= sig_seconds -1;
+    if sig_seconds = 0 then
+        sigstate <= RUN_ROUND;
+        sig_seconds <= sig_round_time;
+        sig_round <= sig_round - 1;
+    end if;
 
+  
+  end case;
+
+        
+      
        end if; 
   end process timer;
   -- Disconnect the top four digits of the 7-segment display
-  AN(7 downto 4) <= b"1111";
+  AN(5) <= '1';
 
-  sig_1sec_vector <= std_logic_vector(sig_1sec);
-  sig_10sec_vector <= std_logic_vector(sig_10sec);
-  sig_100sec_vector <= std_logic_vector(sig_100sec);
+  sig_1sec_vector <= std_logic_vector(to_unsigned((sig_seconds mod 10), sig_1sec_vector'length));
+  sig_10sec_vector <= std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 10) - (sig_seconds - (sig_seconds mod 100)))/10, sig_10sec_vector'length));
+  sig_100sec_vector <= std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 100))/100, sig_100sec_vector'length));
+  sig_round_vector <= std_logic_vector(to_unsigned(sig_round, sig_round_vector'length));
 end architecture behavioral;

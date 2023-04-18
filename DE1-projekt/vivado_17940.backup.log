@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Apr 18 13:04:47 2023
+# Process ID: 17940
+# Current directory: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9364 C:\Users\marou\Desktop\digital-electronics-1-project\DE1-projekt\DE1-projekt.xpr
+# Log file: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/vivado.log
+# Journal file: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1020.227 ; gain = 0.000
+update_compile_order -fileset sources_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2020.2
+  **** Build date : Nov 18 2020 at 10:01:48
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+warning: cannot open library dpcomm.dll, first required symbol ftdimgr_lock, Digilent FTDI based JTAG cables cannot be supported
+warning: cannot open library djtg.dll, first required symbol DjtgGetPortCount, select Digilent JTAG cables cannot be supported
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2020.2
+  ****** Build date   : Nov 03 2020-22:02:56
+    **** Build number : 2020.2.1604437376
+      ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 1020.227 ; gain = 0.000
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 18 13:06:14 2023...

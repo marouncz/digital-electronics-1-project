@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Apr 16 10:55:30 2023
+# Process ID: 1724
+# Current directory: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12956 C:\Users\marou\Desktop\digital-electronics-1-project\DE1-projekt\DE1-projekt.xpr
+# Log file: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/vivado.log
+# Journal file: C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1

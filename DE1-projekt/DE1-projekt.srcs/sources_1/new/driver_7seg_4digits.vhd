@@ -52,10 +52,14 @@ entity driver_7seg_4digits is
     data1   : in    std_logic_vector(3 downto 0);
     data2   : in    std_logic_vector(3 downto 0);
     data3   : in    std_logic_vector(3 downto 0);
-    dp_vect : in    std_logic_vector(3 downto 0);
+    data4   : in    std_logic_vector(3 downto 0);
+    data5   : in    std_logic_vector(3 downto 0);
+    data6   : in    std_logic_vector(3 downto 0);
+    data7   : in    std_logic_vector(3 downto 0);
+    dp_vect : in    std_logic_vector(7 downto 0);
     dp      : out   std_logic;
     seg     : out   std_logic_vector(6 downto 0);
-    dig     : out   std_logic_vector(3 downto 0)
+    dig     : out   std_logic_vector(7 downto 0)
   );
 end entity driver_7seg_4digits;
 
@@ -70,6 +74,7 @@ architecture behavioral of driver_7seg_4digits is
 
   -- Internal 2-bit counter for multiplexing 4 digits
   signal sig_cnt_2bit : std_logic_vector(1 downto 0);
+  signal sig_cnt_3bit : std_logic_vector(2 downto 0);
 
   -- Internal 4-bit value for 7-segment decoder
   signal sig_hex : std_logic_vector(3 downto 0);
@@ -86,7 +91,7 @@ begin
       -- FOR IMPLEMENTATION, CHANGE THIS VALUE TO 400,000
       -- 4      @ 4 ns
       -- 400000 @ 4 ms
-      g_MAX => 400000
+      g_MAX => 208333
     )
     port map (
       clk => clk,
@@ -100,14 +105,14 @@ begin
   --------------------------------------------------------
   bin_cnt0 : entity work.cnt_up_down
     generic map (
-      g_CNT_WIDTH => 2
+      g_CNT_WIDTH => 3
     )
     port map (
       clk => clk,
       rst => rst,
       en  => sig_en_4ms,
       cnt_up => '0',
-      cnt => sig_cnt_2bit
+      cnt => sig_cnt_3bit
     );
 
   --------------------------------------------------------
@@ -134,30 +139,50 @@ begin
       if (rst = '1') then
         sig_hex <= data0;
         dp      <= dp_vect(0);
-        dig     <= "1110";
+        dig     <= "11111110";
       else
 
-        case sig_cnt_2bit is
+        case sig_cnt_3bit is
 
-          when "11" =>
+          when "111" =>
+            sig_hex <= data7;
+            dp      <= dp_vect(7);
+            dig     <= "01111111";
+
+          when "110" =>
+            sig_hex <= data6;
+            dp      <= dp_vect(6);
+            dig     <= "10111111";
+
+          when "101" =>
+            sig_hex <= data5;
+            dp      <= dp_vect(5);
+            dig     <= "11011111";
+
+          when "100" =>
+            sig_hex <= data4;
+            dp      <= dp_vect(4);
+            dig     <= "11101111";
+
+          when "011" =>
             sig_hex <= data3;
             dp      <= dp_vect(3);
-            dig     <= "0111";
+            dig     <= "11110111";
 
-          when "10" =>
+          when "010" =>
             sig_hex <= data2;
             dp      <= dp_vect(2);
-            dig     <= "1011";
+            dig     <= "11111011";
 
-          when "01" =>
+          when "001" =>
             sig_hex <= data1;
             dp      <= dp_vect(1);
-            dig     <= "1101";
+            dig     <= "11011101";
 
           when others =>
             sig_hex <= data0;
             dp      <= dp_vect(0);
-            dig     <= "1110";
+            dig     <= "11011110";
 
         end case;
 
