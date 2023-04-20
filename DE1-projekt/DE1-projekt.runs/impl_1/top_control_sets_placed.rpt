@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Apr 18 16:01:28 2023
-| Host         : DESKTOP-2HQNA93 running 64-bit major release  (build 9200)
+| Date         : Thu Apr 20 12:48:39 2023
+| Host         : PC-631 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
 | Device       : xc7a50ti
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     7 |
-|    Minimum number of control sets                        |     7 |
+| Total control sets                                       |    11 |
+|    Minimum number of control sets                        |    11 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    20 |
+| Unused register locations in slices containing registers |    17 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     7 |
+| Total control sets |    11 |
 | >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     2 |
+| >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     1 |
-| >= 10 to < 12      |     0 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     3 |
+| >= 16              |     8 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,28 +58,32 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              14 |            8 |
+| No           | No                    | No                     |              16 |           10 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              69 |           18 |
-| Yes          | No                    | No                     |               4 |            1 |
+| No           | Yes                   | No                     |             101 |           29 |
+| Yes          | No                    | No                     |             162 |           59 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              29 |            8 |
+| Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+---------------+-----------------------------------------+------------------+----------------+--------------+
-|     Clock Signal     | Enable Signal |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+---------------+-----------------------------------------+------------------+----------------+--------------+
-|  clk_1sec_BUFG       | sig_round     |                                         |                1 |              4 |         4.00 |
-|  clk_1sec_BUFG       |               |                                         |                2 |              5 |         2.50 |
-|  CLK100MHZ_IBUF_BUFG |               | BTNC_IBUF                               |                2 |              7 |         3.50 |
-|  CLK100MHZ_IBUF_BUFG |               |                                         |                6 |              9 |         1.50 |
-|  clk_1sec_BUFG       | sig_seconds   | sig_seconds[31]_i_1_n_0                 |                8 |             29 |         3.62 |
-|  CLK100MHZ_IBUF_BUFG |               | driver_seg_4/clk_en0/sig_cnt[0]_i_1_n_0 |                8 |             31 |         3.88 |
-|  CLK100MHZ_IBUF_BUFG |               | clk_en1/sig_cnt[0]_i_1__0_n_0           |                8 |             31 |         3.88 |
-+----------------------+---------------+-----------------------------------------+------------------+----------------+--------------+
++----------------------+-------------------------+-----------------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |      Enable Signal      |             Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+-------------------------+-----------------------------------------+------------------+----------------+--------------+
+|  clk_1sec_BUFG       |                         |                                         |                3 |              6 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG |                         | BTNR_IBUF                               |                5 |              8 |         1.60 |
+|  CLK100MHZ_IBUF_BUFG |                         |                                         |                7 |             10 |         1.43 |
+|  CLK100MHZ_IBUF_BUFG |                         | clk_en1/clear                           |                8 |             31 |         3.88 |
+|  CLK100MHZ_IBUF_BUFG |                         | clk_en2/sig_cnt[0]_i_1__0_n_0           |                8 |             31 |         3.88 |
+|  CLK100MHZ_IBUF_BUFG |                         | driver_seg_4/clk_en0/sig_cnt[0]_i_1_n_0 |                8 |             31 |         3.88 |
+|  clk_1sec_BUFG       | sig_break_time          |                                         |               11 |             32 |         2.91 |
+|  clk_1sec_BUFG       | sig_round_time          |                                         |               11 |             32 |         2.91 |
+|  clk_1sec_BUFG       | sig_round[31]_i_1_n_0   |                                         |               11 |             32 |         2.91 |
+|  clk_1sec_BUFG       | sig_seconds[31]_i_1_n_0 |                                         |               17 |             32 |         1.88 |
+|  clk_BUFG            | sel                     |                                         |                9 |             34 |         3.78 |
++----------------------+-------------------------+-----------------------------------------+------------------+----------------+--------------+
 
 

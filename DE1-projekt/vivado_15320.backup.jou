@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Apr 20 14:57:31 2023
+# Process ID: 15320
+# Current directory: D:/digital-electronics-1-project/DE1-projekt
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20356 D:\digital-electronics-1-project\DE1-projekt\DE1-projekt.xpr
+# Log file: D:/digital-electronics-1-project/DE1-projekt/vivado.log
+# Journal file: D:/digital-electronics-1-project/DE1-projekt\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr
+update_compile_order -fileset sources_1

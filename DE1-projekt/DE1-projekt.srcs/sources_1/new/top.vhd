@@ -46,6 +46,8 @@ entity top is
            DP : out STD_LOGIC;
            AN : out STD_LOGIC_VECTOR (7 downto 0);
            BTNR : in STD_LOGIC;
+           BTNU : in STD_LOGIC;
+           BTND : in STD_LOGIC;
            BTNC : in STD_LOGIC);
            
 end top;
@@ -57,19 +59,25 @@ end top;
 ----------------------------------------------------------
 architecture behavioral of top is
  signal clk_1sec : std_logic;
+ signal clk_100mil : std_logic;
  signal sig_1sec : unsigned (3 downto 0) := (others => '0');
  signal sig_10sec : unsigned (3 downto 0) := (others => '0');
  signal sig_100sec : unsigned (3 downto 0) := (others => '0');
- signal sig_seconds : integer := 10;
- signal sig_round : integer := 9;
- signal sig_round_time : integer := 9;
- signal sig_break_time : integer := 5;
+  signal sig_1round : unsigned (3 downto 0) := (others => '0');
+ signal sig_10round : unsigned (3 downto 0) := (others => '0');
+ signal sig_seconds : integer := 0;
+ signal sig_seconds_set : integer := 0;
+ signal sig_round : integer := 0;
+ signal sig_round_time : integer := 0;
+ signal sig_break_time : integer := 0;
+ signal sig_state_vector : STD_LOGIC_VECTOR (3 downto 0);
  
  signal sig_1sec_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal sig_10sec_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal sig_100sec_vector : STD_LOGIC_VECTOR (3 downto 0);
  
- signal sig_round_vector : STD_LOGIC_VECTOR (3 downto 0);
+ signal sig_1round_vector : STD_LOGIC_VECTOR (3 downto 0);
+ signal sig_10round_vector : STD_LOGIC_VECTOR (3 downto 0);
  signal setup : STD_LOGIC; 
  
 
@@ -81,7 +89,7 @@ type t_state is (
     RUN_ROUND
     );
     
-signal sigstate: t_state; 
+signal sigstate: t_state := SETUP_ROUND; 
 
 begin
 
@@ -98,27 +106,45 @@ begin
     )
     port map (
       clk => CLK100MHZ,
-      rst => BTNC,
+      rst => BTNR,
       ce  => clk_1sec
+    );
+    clk_en2 : entity work.clock_enable
+    generic map (
+      g_MAX => 10000000
+    )
+    port map (
+      clk => CLK100MHZ,
+      rst => BTNR,
+      ce  => clk_100mil
     );
     
   driver_seg_4 : entity work.driver_7seg_4digits
       port map (
           clk      => CLK100MHZ,
-          rst      => BTNC,
+          rst      => BTNR,
           
 
           
-          data6(3) => sig_round_vector(3),
-          data6(2) => sig_round_vector(2),
-          data6(1) => sig_round_vector(1),
-          data6(0) => sig_round_vector(0),
+          data6(3) => sig_10sec_vector(3),
+          data6(2) => sig_10sec_vector(2),
+          data6(1) => sig_10sec_vector(1),
+          data6(0) => sig_10sec_vector(0),
           
-          data7 => "1111",
-          data5 => "1111",
+          data5(3) => sig_1sec_vector(3),
+          data5(2) => sig_1sec_vector(2),
+          data5(1) => sig_1sec_vector(1),
+          data5(0) => sig_1sec_vector(0),
+         
+          
           data4 => "1111",
           data3 => "1111",
-          
+           
+          data7(3) => sig_state_vector(3),
+          data7(2) => sig_state_vector(2),
+          data7(1) => sig_state_vector(1),
+          data7(0) => sig_state_vector(0),
+           
           data2(3) => sig_100sec_vector(3),
           data2(2) => sig_100sec_vector(2),
           data2(1) => sig_100sec_vector(1),
@@ -154,32 +180,48 @@ begin
           -- DIGITS
           dig(7 downto 0) => AN(7 downto 0)
       );
-
+      
   timer : process (clk_1sec) is
 
  
   begin
-  
-  
-  if (BTNC = '1') then
-         
-  end if;
-  
-  
-       if (rising_edge(clk_1sec)) then
-        if (BTNR = '1') then
-         sigstate <= RUN_ROUND;
-  end if;
-         case sigstate is
+
+
+  if (rising_edge(clk_1sec)) then
+   case sigstate is
   
   when SETUP_ROUND => 
+
+  sig_state_vector <= "1110";
+  if (BTNC = '1') then
+         sigstate <= SETUP_ROUND_TIME;
+         sig_round <= sig_seconds_set;
+  end if;
+  
   when SETUP_ROUND_TIME =>
+    sig_state_vector <= "1011";
+    if (BTNC = '1') then
+         sigstate <= SETUP_BRAKE_TIME;
+         sig_round_time <= sig_seconds_set;
+  end if;
   when SETUP_BRAKE_TIME =>
+  sig_state_vector <= "1010";
+    if (BTNC = '1') then
+         sigstate <= RUN_ROUND;
+          sig_break_time <= sig_seconds_set;
+          sig_state_vector <= "1011";
+         -- sig_seconds <= sig_round_time;
+  end if;
   when RUN_ROUND =>
     sig_seconds <= sig_seconds -1;
     if sig_seconds = 0 then
+    if(sig_round=0) then
+        sigstate <= SETUP_ROUND; 
+    else
          sigstate <= RUN_BREAK;
          sig_seconds <= sig_break_time;
+         sig_state_vector <= "1010";
+    end if;     
     end if;
   when RUN_BREAK => 
    sig_seconds <= sig_seconds -1;
@@ -187,20 +229,45 @@ begin
         sigstate <= RUN_ROUND;
         sig_seconds <= sig_round_time;
         sig_round <= sig_round - 1;
+        sig_state_vector <= "1011";
     end if;
 
-  
-  end case;
+ end case;
 
-        
-      
        end if; 
   end process timer;
+  button_timer : process (clk_100mil) is
+  begin
+  if (rising_edge(clk_100mil)) then
+     if (BTNU = '1') then
+         sig_seconds_set <= sig_seconds_set +1;
+    end if;
+    if (BTND = '1' and sig_seconds_set>0) then
+         sig_seconds_set <= sig_seconds_set -1;
+    end if;
+   
+  end if;  
+  end process button_timer;
   -- Disconnect the top four digits of the 7-segment display
-  AN(5) <= '1';
 
-  sig_1sec_vector <= std_logic_vector(to_unsigned((sig_seconds mod 10), sig_1sec_vector'length));
-  sig_10sec_vector <= std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 10) - (sig_seconds - (sig_seconds mod 100)))/10, sig_10sec_vector'length));
-  sig_100sec_vector <= std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 100))/100, sig_100sec_vector'length));
-  sig_round_vector <= std_logic_vector(to_unsigned(sig_round, sig_round_vector'length));
+  
+  sig_1sec_vector <= std_logic_vector(to_unsigned((sig_seconds_set mod 10), sig_1sec_vector'length)) when sigstate = SETUP_ROUND_TIME else
+                     std_logic_vector(to_unsigned((sig_seconds_set mod 10), sig_1sec_vector'length)) when sigstate = SETUP_BRAKE_TIME else
+                     std_logic_vector(to_unsigned((sig_seconds mod 10), sig_1sec_vector'length));
+    
+   sig_10sec_vector <= std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 10) - (sig_seconds_set - (sig_seconds_set mod 100)))/10, sig_10sec_vector'length)) when sigstate = SETUP_ROUND_TIME else
+                      std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 10) - (sig_seconds_set - (sig_seconds_set mod 100)))/10, sig_10sec_vector'length)) when sigstate = SETUP_BRAKE_TIME else
+          
+                      std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 10) - (sig_seconds - (sig_seconds mod 100)))/10, sig_10sec_vector'length));    
+                      
+   sig_100sec_vector <= std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 100))/100, sig_100sec_vector'length)) when sigstate = SETUP_ROUND_TIME else
+                        std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 100))/100, sig_100sec_vector'length)) when sigstate = SETUP_BRAKE_TIME else
+                        std_logic_vector(to_unsigned((sig_seconds - (sig_seconds mod 100))/100, sig_100sec_vector'length));                                   
+  
+  sig_1round_vector <= std_logic_vector(to_unsigned((sig_seconds_set mod 10), sig_1sec_vector'length)) when sigstate = SETUP_BRAKE_TIME else
+                       std_logic_vector(to_unsigned((sig_round mod 10), sig_1sec_vector'length));
+                     
+ sig_10round_vector <= std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 10) - (sig_seconds_set - (sig_seconds_set mod 100)))/10, sig_10sec_vector'length)) when sigstate = SETUP_ROUND else
+                       std_logic_vector(to_unsigned((sig_round - (sig_round mod 10) - (sig_round - (sig_round mod 100)))/10, sig_10sec_vector'length)); 
+   
 end architecture behavioral;

@@ -73,7 +73,7 @@ architecture behavioral of driver_7seg_4digits is
   signal sig_en_4ms : std_logic;
 
   -- Internal 2-bit counter for multiplexing 4 digits
-  signal sig_cnt_2bit : std_logic_vector(1 downto 0);
+
   signal sig_cnt_3bit : std_logic_vector(2 downto 0);
 
   -- Internal 4-bit value for 7-segment decoder
