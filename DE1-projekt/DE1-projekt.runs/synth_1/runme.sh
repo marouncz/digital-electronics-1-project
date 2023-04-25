@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/240598/Documents/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/synth_1'
+HD_PWD='C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

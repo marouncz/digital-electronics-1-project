@@ -177,12 +177,12 @@ begin
           when "001" =>
             sig_hex <= data1;
             dp      <= dp_vect(1);
-            dig     <= "11011101";
+            dig     <= "11111101";
 
           when others =>
             sig_hex <= data0;
             dp      <= dp_vect(0);
-            dig     <= "11011110";
+            dig     <= "11111110";
 
         end case;
 
