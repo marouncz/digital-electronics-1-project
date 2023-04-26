@@ -61,6 +61,7 @@ end top;
 ----------------------------------------------------------
 architecture behavioral of top is
  signal sig_ispressed : std_logic:= '0';
+ signal countdown : std_logic:= '0';
  signal clk_1sec : std_logic;
  signal clk_100mil : std_logic;
  signal clk_500mil : std_logic;
@@ -111,7 +112,7 @@ begin
     )
     port map (
       clk => CLK100MHZ,
-      rst => BTNR,
+      rst => '0',
       ce  => clk_1sec
     );
     clk_en2 : entity work.clock_enable
@@ -120,7 +121,7 @@ begin
     )
     port map (
       clk => CLK100MHZ,
-      rst => BTNR,
+      rst => '0',
       ce  => clk_100mil
     );
     clk_en3 : entity work.clock_enable
@@ -129,14 +130,14 @@ begin
     )
     port map (
       clk => CLK100MHZ,
-      rst => BTNR,
+      rst => '0',
       ce  => clk_500mil
     );
     
   driver_seg_4 : entity work.driver_7seg_4digits
       port map (
           clk      => CLK100MHZ,
-          rst      => BTNR,
+          rst      => '0',
 
           data6 => "1111",
           
@@ -222,6 +223,14 @@ begin
      if (BTNC = '1') then
          sig_ispressed <= '1';
     end if;
+    if (BTNR = '1') then
+         sig_ispressed <= '0';
+         sig_seconds_set <= 0;
+         sig_round <= 0;
+         sig_round_time <= 0;
+         sig_break_time <= 0;
+         sigstate <= SETUP_ROUND;
+    end if;
      case sigstate is
   
   when SETUP_ROUND => 
@@ -229,60 +238,59 @@ begin
   sig_state_vector <= "1100";
   if (BTNC = '0' and sig_ispressed = '1') then
         sig_ispressed <= '0';
-         sigstate <= SETUP_ROUND_TIME;
          sig_round <= sig_seconds_set;
+         sig_seconds_set <=0;
+         sigstate <= SETUP_ROUND_TIME;
   end if;
   
   when SETUP_ROUND_TIME =>
     sig_state_vector <= "1011";
     if (BTNC = '0' and sig_ispressed = '1') then
          sig_ispressed <= '0';
-         sigstate <= SETUP_BRAKE_TIME;
          sig_round_time <= sig_seconds_set;
+         sig_seconds_set <=0;
+         sigstate <= SETUP_BRAKE_TIME;
   end if;
   when SETUP_BRAKE_TIME =>
   sig_state_vector <= "1010";
     if (BTNC = '0' and sig_ispressed = '1') then
-        sig_ispressed <= '0';
-         sigstate <= RUN_ROUND;
-          sig_break_time <= sig_seconds_set;
-          sig_state_vector <= "1011";
-          sig_seconds <= sig_round_time;
+        --sig_ispressed <= '0';
+        sig_break_time <= sig_seconds_set;
+        sig_seconds <= 25;
+        sig_state_vector <= "1011";
+        --sigstate <= RUN_ROUND;
   end if;
   when RUN_ROUND =>
- if sig_seconds = 0 then
-    if(sig_round=0) then
-        sigstate <= SETUP_ROUND; 
+    if sig_round=0 then
+      sigstate <= SETUP_ROUND;
     else
-         sigstate <= RUN_BREAK;
-         sig_seconds <= sig_break_time;
+    if sig_seconds = 0  then
+        sig_seconds <= sig_break_time;
          sig_state_vector <= "1010";
-    end if;     
+         sigstate <= RUN_BREAK;  
     end if;
-  when RUN_BREAK => 
-         if sig_seconds = 0 then
-        sigstate <= RUN_ROUND;
+    end if; 
+  when RUN_BREAK =>
+    if sig_seconds = 0  then
         sig_seconds <= sig_round_time;
         sig_round <= sig_round - 1;
         sig_state_vector <= "1011";
+       sigstate <= RUN_ROUND;
     end if;
  end case;
   end if;  
 
 
-  if (rising_edge(clk_1sec)) then
+  if (rising_edge(clk_1sec) and countdown = '1') then
    case sigstate is
-  
-  when SETUP_ROUND => 
-  when SETUP_ROUND_TIME =>
-  when SETUP_BRAKE_TIME =>
+ 
   when RUN_ROUND =>
     sig_seconds <= sig_seconds -1;
   when RUN_BREAK => 
-   sig_seconds <= sig_seconds -1;
+     sig_seconds <= sig_seconds -1;
+   when others =>
  end case;
-
-       end if; 
+     end if; 
   end process timer;
 
 

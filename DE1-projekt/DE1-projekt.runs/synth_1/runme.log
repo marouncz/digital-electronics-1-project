@@ -17,91 +17,90 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a50t
 INFO: [Device 21-403] Loading part xc7a50ticsg324-1L
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10896
+INFO: [Synth 8-7075] Helper process launched with PID 788
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 999.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:62]
-INFO: [Synth 8-638] synthesizing module 'clock_enable' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'top' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:62]
+INFO: [Synth 8-638] synthesizing module 'clock_enable' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
 	Parameter g_MAX bound to: 100000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_enable' (1#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized0' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'clock_enable' (1#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized0' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
 	Parameter g_MAX bound to: 10000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized0' (1#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized1' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized0' (1#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized1' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
 	Parameter g_MAX bound to: 50000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized1' (1#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'driver_7seg_4digits' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/driver_7seg_4digits.vhd:70]
-INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized2' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized1' (1#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'driver_7seg_4digits' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/driver_7seg_4digits.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'clock_enable__parameterized2' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
 	Parameter g_MAX bound to: 208333 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized2' (1#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'cnt_up_down' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/cnt_up_down.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'clock_enable__parameterized2' (1#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/clock_enable.vhd:41]
+INFO: [Synth 8-638] synthesizing module 'cnt_up_down' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/cnt_up_down.vhd:44]
 	Parameter g_CNT_WIDTH bound to: 3 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'cnt_up_down' (2#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/cnt_up_down.vhd:44]
-INFO: [Synth 8-638] synthesizing module 'hex_7seg' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/hex_7seg.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'hex_7seg' (3#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/hex_7seg.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'driver_7seg_4digits' (4#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/driver_7seg_4digits.vhd:70]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 with 1st driver pin 'top:/driver_seg_4/dig[6]' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 with 2nd driver pin 'VCC' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'top' (5#1) [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:62]
+INFO: [Synth 8-256] done synthesizing module 'cnt_up_down' (2#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/cnt_up_down.vhd:44]
+INFO: [Synth 8-638] synthesizing module 'hex_7seg' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/hex_7seg.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'hex_7seg' (3#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/hex_7seg.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'driver_7seg_4digits' (4#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/driver_7seg_4digits.vhd:70]
+WARNING: [Synth 8-614] signal 'countdown' is read in the process but is not in the sensitivity list [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:197]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 with 1st driver pin 'top:/driver_seg_4/dig[6]' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 with 2nd driver pin 'VCC' [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-36.0, C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd-62.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:36]
+INFO: [Synth 8-256] done synthesizing module 'top' (5#1) [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:62]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 999.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 999.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 999.172 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 999.172 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]
-Finished Parsing XDC File [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Parsing XDC File [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]
+Finished Parsing XDC File [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1000.121 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1000.121 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.121 ; gain = 0.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a50ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.121 ; gain = 0.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1000.121 ; gain = 0.949
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'sigstate_reg' in module 'top'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-             setup_round |                              000 |                              000
-        setup_round_time |                              001 |                              001
-        setup_brake_time |                              010 |                              010
-               run_round |                              011 |                              100
-               run_break |                              100 |                              011
+             setup_round |                              001 |                              000
+        setup_round_time |                              010 |                              001
+        setup_brake_time |                              100 |                              010
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'sigstate_reg' using encoding 'sequential' in module 'top'
+INFO: [Synth 8-3354] encoded FSM with state register 'sigstate_reg' using encoding 'one-hot' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1000.059 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1000.121 ; gain = 0.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -117,27 +116,26 @@ Detailed RTL Component Info :
 	   2 Input    4 Bit       Adders := 8     
 	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 5     
+	               32 Bit    Registers := 3     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 1     
 	                1 Bit    Registers := 9     
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 1     
-	   5 Input   32 Bit        Muxes := 3     
+	   3 Input   32 Bit        Muxes := 2     
 	   2 Input   31 Bit        Muxes := 8     
 	   8 Input    8 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 6     
 	  17 Input    7 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 6     
 	   2 Input    4 Bit        Muxes := 14    
-	   3 Input    4 Bit        Muxes := 3     
-	   5 Input    4 Bit        Muxes := 1     
-	   5 Input    3 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 4     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 7     
-	   5 Input    1 Bit        Muxes := 11    
+	   2 Input    1 Bit        Muxes := 16    
+	   3 Input    1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -153,29 +151,26 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dig[6] with 1st driver pin 'driver_seg_4/dig[6]' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:136]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin dig[6] with 2nd driver pin 'VCC' [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:136]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net dig[6] is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/240967/Desktop/DE-projekt/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/sources_1/new/top.vhd:136]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1012.109 ; gain = 12.051
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1096.984 ; gain = 97.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1012.109 ; gain = 12.051
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1096.984 ; gain = 97.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1014.465 ; gain = 14.406
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 1096.984 ; gain = 97.812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1082.527 ; gain = 82.469
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1213.129 ; gain = 213.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -193,37 +188,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -239,28 +234,42 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     3|
-|2     |CARRY4 |   762|
-|3     |LUT1   |   400|
-|4     |LUT2   |   332|
-|5     |LUT3   |  1056|
-|6     |LUT4   |   476|
-|7     |LUT5   |   739|
-|8     |LUT6   |  2392|
+|1     |BUFG   |     2|
+|2     |CARRY4 |   473|
+|3     |LUT1   |   249|
+|4     |LUT2   |   247|
+|5     |LUT3   |   538|
+|6     |LUT4   |   282|
+|7     |LUT5   |   453|
+|8     |LUT6   |  1520|
 |9     |MUXF7  |     4|
-|10    |FDRE   |   345|
+|10    |FDRE   |   146|
 |11    |FDSE   |     6|
 |12    |IBUF   |     5|
 |13    |OBUF   |    18|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 3 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 1097.363 ; gain = 97.305
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1097.363 ; gain = 97.305
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:00:37 . Memory (MB): peak = 1228.051 ; gain = 227.930
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 1228.051 ; gain = 228.879
 INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1228.051 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 477 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'top' is not ideal for floorplanning, since the cellview 'top' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1228.051 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
 
-*** Running vivado
-    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 2 Warnings, 3 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 1228.051 ; gain = 228.879
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 26 12:58:32 2023...
