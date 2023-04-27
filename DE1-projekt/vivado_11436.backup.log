@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Apr 27 11:07:26 2023
+# Process ID: 11436
+# Current directory: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3176 C:\Users\240967\Desktop\digital-electronics-1-project\DE1-projekt\DE1-projekt.xpr
+# Log file: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt/vivado.log
+# Journal file: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt' since last save.
+WARNING: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.gen/sources_1', nor could it be found using path 'C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/appz/Xilinx/Vivado/2020.2/data/ip'.
+ERROR: [Common 17-539] Failed to load tclapp initializer can't find package ::tclapp::support::appinit 1.2 from 'C:/Users/240967/AppData/Roaming/Xilinx/Vivado/2020.2/XilinxTclStore'
+ERROR: [Common 17-69] Command failed: ERROR: [Common 17-539] Failed to load tclapp initializer can't find package ::tclapp::support::appinit 1.2 from 'C:/Users/240967/AppData/Roaming/Xilinx/Vivado/2020.2/XilinxTclStore'
+
+tclapp:reset_tclstore
+invalid command name "tclapp:reset_tclstore"
+tclapp::reset_tclstore
+INFO: [Common 17-700] Please exit Vivado to allow Tcl Store reset to complete.
+reset_run impl_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 27 11:08:55 2023...

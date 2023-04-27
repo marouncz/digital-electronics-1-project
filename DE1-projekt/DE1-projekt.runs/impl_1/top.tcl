@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/impl_1/top.tcl"
+  variable script "C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/impl_1/top.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,7 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -123,23 +122,22 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 1
-  set_param xicom.use_bs_reader 1
+  set_param chipscope.maxJobs 2
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a50ticsg324-1L
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.cache/wt [current_project]
-  set_property parent.project_path C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr [current_project]
-  set_property ip_output_repo C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.cache/wt [current_project]
+  set_property parent.project_path C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr [current_project]
+  set_property ip_output_repo C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/synth_1/top.dcp
+  add_files -quiet C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.runs/synth_1/top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc C:/Users/TEMP/Desktop/DE/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc
+  read_xdc C:/Users/marou/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.srcs/constrs_1/new/nexys-a7-50t.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

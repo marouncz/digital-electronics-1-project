@@ -46,6 +46,7 @@ entity top is
            DP : out STD_LOGIC;
            LED16_G : out STD_LOGIC;
            LED16_R : out STD_LOGIC;
+           BUZZER : out STD_LOGIC;
            AN : out STD_LOGIC_VECTOR (7 downto 0);
            BTNR : in STD_LOGIC;
            BTNU : in STD_LOGIC;
@@ -61,7 +62,7 @@ end top;
 ----------------------------------------------------------
 architecture behavioral of top is
  signal sig_ispressed : std_logic:= '0';
- signal countdown : std_logic:= '0';
+ signal sig_1000mils : integer := 0;
  signal clk_1sec : std_logic;
  signal clk_100mil : std_logic;
  signal clk_500mil : std_logic;
@@ -201,27 +202,47 @@ begin
   case sigstate is
      when SETUP_ROUND => 
         LED16_R <=  '1';
+        LED16_G <=  '0';
+        BUZZER <=  '1';
      when SETUP_ROUND_TIME =>
      when SETUP_BRAKE_TIME =>
      when RUN_ROUND =>
        LED16_R <=  '0';
        sig_led <= not sig_led;
        LED16_G <= sig_led;
+       
+       if sig_seconds < 4 then
+        BUZZER <=  not sig_led;
+       else
+        BUZZER <=  '1';
+       end if;       
+       
      when RUN_BREAK => 
        LED16_G <=  '0';
        sig_led <= not sig_led;
        LED16_R <= sig_led;
+       
+       if sig_seconds < 4 then
+        BUZZER <=  not sig_led;
+       else
+        BUZZER <=  '1';
+       end if;
+       
+        
  end case;
   end if;
   if (rising_edge(clk_100mil)) then
      if (BTNU = '1' and sig_seconds_set<998) then
          sig_seconds_set <= sig_seconds_set +1;
-    end if;
-    if (BTND = '1' and sig_seconds_set>0) then
+         BUZZER <=  '0';
+   elsif (BTND = '1' and sig_seconds_set>0) then
          sig_seconds_set <= sig_seconds_set -1;
-    end if;
-     if (BTNC = '1') then
+         BUZZER <=  '0';
+   elsif (BTNC = '1') then
          sig_ispressed <= '1';
+         BUZZER <=  '0';
+   elsif(sigstate = SETUP_ROUND or sigstate = SETUP_ROUND_TIME or sigstate = SETUP_BRAKE_TIME) then
+    BUZZER <=  '1';     
     end if;
     if (BTNR = '1') then
          sig_ispressed <= '0';
@@ -254,43 +275,43 @@ begin
   when SETUP_BRAKE_TIME =>
   sig_state_vector <= "1010";
     if (BTNC = '0' and sig_ispressed = '1') then
-        --sig_ispressed <= '0';
+        sig_ispressed <= '0';
         sig_break_time <= sig_seconds_set;
-        sig_seconds <= 25;
+        sig_seconds <= sig_round_time;
         sig_state_vector <= "1011";
-        --sigstate <= RUN_ROUND;
+        sigstate <= RUN_ROUND;
   end if;
   when RUN_ROUND =>
-    if sig_round=0 then
-      sigstate <= SETUP_ROUND;
-    else
     if sig_seconds = 0  then
         sig_seconds <= sig_break_time;
          sig_state_vector <= "1010";
          sigstate <= RUN_BREAK;  
+        
     end if;
-    end if; 
   when RUN_BREAK =>
     if sig_seconds = 0  then
         sig_seconds <= sig_round_time;
         sig_round <= sig_round - 1;
         sig_state_vector <= "1011";
+        
+if sig_round=0 then
+      sigstate <= SETUP_ROUND;
+       sig_seconds <= 0;
+      else
        sigstate <= RUN_ROUND;
+      end if;
     end if;
  end case;
-  end if;  
+ if(sig_1000mils>8) then
+    if(sig_seconds>0 and (sigstate = RUN_ROUND or sigstate = RUN_BREAK))then
+      sig_seconds <= sig_seconds - 1;  
+    end if;
+    sig_1000mils <= 0;
+ else
+    sig_1000mils <= sig_1000mils +1;  
+ end if;
+end if;
 
-
-  if (rising_edge(clk_1sec) and countdown = '1') then
-   case sigstate is
- 
-  when RUN_ROUND =>
-    sig_seconds <= sig_seconds -1;
-  when RUN_BREAK => 
-     sig_seconds <= sig_seconds -1;
-   when others =>
- end case;
-     end if; 
   end process timer;
 
 
@@ -313,8 +334,8 @@ begin
                      
  sig_10round_vector <= std_logic_vector(to_unsigned((sig_seconds_set - (sig_seconds_set mod 10) - (sig_seconds_set - (sig_seconds_set mod 100)))/10, sig_10sec_vector'length)) when sigstate = SETUP_ROUND else
                        std_logic_vector(to_unsigned((sig_round - (sig_round mod 10) - (sig_round - (sig_round mod 100)))/10, sig_10sec_vector'length)); 
-   --AN(5) <= '1';
-   --AN(3) <= '1';
+
    AN(6) <= '1';
+   AN(3) <= '1';
    --sig_ispressed <= sig_ispressed_1 or sig_ispressed_2;
 end architecture behavioral;

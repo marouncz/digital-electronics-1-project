@@ -1,0 +1,16 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Apr 27 11:07:26 2023
+# Process ID: 11436
+# Current directory: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3176 C:\Users\240967\Desktop\digital-electronics-1-project\DE1-projekt\DE1-projekt.xpr
+# Log file: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt/vivado.log
+# Journal file: C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/240967/Desktop/digital-electronics-1-project/DE1-projekt/DE1-projekt.xpr
+tclapp:reset_tclstore
+tclapp::reset_tclstore
+reset_run impl_1
