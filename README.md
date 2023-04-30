@@ -35,7 +35,7 @@ External devices:
 
 ## Software description 
 
-![IMG_7022](https://user-images.githubusercontent.com/102173814/235366811-ae179e49-5846-47d0-8f50-7500a98d6cf9.jpg)
+<img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235366811-ae179e49-5846-47d0-8f50-7500a98d6cf9.jpg">
 
 - The timer is implemented using VHDL programming language. The VHDL code is divided into several modules, including the top-level module, clock divider module, seven-segment display module, audio module, and RGB LED module. The top-level module contains the main logic of the timer, which controls the flow of the program and communicates with the other modules.
 
