@@ -2,6 +2,8 @@
 ## Timer for circuit workout 
 This is our team's repository for group project consisting of workout timer, programmed in vhdl.
 
+![IMG_7012](https://user-images.githubusercontent.com/102173814/235366753-1821fee4-356a-424d-b57d-2666117c4c2a.jpg)
+
 ## Team members
 - Marek Coufal
 - Jakub Plachtička
@@ -32,6 +34,9 @@ External devices:
 - Arduino multifunction shield (we use only buzzer)
 
 ## Software description 
+
+![IMG_7022](https://user-images.githubusercontent.com/102173814/235366811-ae179e49-5846-47d0-8f50-7500a98d6cf9.jpg)
+
 - The timer is implemented using VHDL programming language. The VHDL code is divided into several modules, including the top-level module, clock divider module, seven-segment display module, audio module, and RGB LED module. The top-level module contains the main logic of the timer, which controls the flow of the program and communicates with the other modules.
 
 - The clock divider module is responsible for generating a clock signal with a frequency of 1 Hz, which is used as a timebase for the timer. The seven-segment display module converts the time value into a format that can be displayed on the seven-segment displays. The RGB LED module controls the color of the RGB LED.
