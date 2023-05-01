@@ -43,14 +43,14 @@ External devices:
 - The clock divider module is responsible for generating a clock signal with a frequency of 1 Hz, which is used as a timebase for the timer. The seven-segment display module converts the time value into a format that can be displayed on the seven-segment displays. The RGB LED module controls the color of the RGB LED.
 
 ## User Instructions
-- Upon power-on, the program enters a setup state, where the user can enter the number of rounds and the round and break duration in seconds.
+- Upon power-up, the program enters a setup state, where the user can enter the number of rounds and the round and break duration in seconds.
     - First parameter to be set by the user is the number of rounds indicated on the left-hand side of the display. This is done by pressing the `UP` and `DOWN` buttons on the Nexys A7 development board. After the user sets the desired number of rounds, the `CENTER` button has to be pressed for confirmation.
     - After confirmation, the left most character on the display changes to the `r` character to indicate the round-time setup state. Again, by using the `UP` and `DOWN` buttons on the Nexys A7 development board, desired round time is being set, this time on the right-hand side of the display.
     - After confirmation, the left most character on the display changes to the `P` character to indicate the Pause-time setup state. User can, as in previous states, set the pause duration and press the `CENTER` button for final confirmation.
     - every press of the buttons is also indicated by a beep to provide an audio feedback to the user.
 - The board now enters running state.
-    - The left most character displays either `r` or `P` indicating if the timer is currently in the round or Pause state
-        - Every second of the countdown an LED flashes - red for round and green for Pause to also indicate the current state of the timer.
+    - The left most character displays either `r` or `P` indicating whether the timer is currently in the round or Pause state.
+        - An LED flashes every second of the countdown  - red for round and green for Pause to also indicate the current state of the timer.
     - The number on the left-hand side of the display represents the remaining number of rounds / pauses left.
     - The number on the right-hand side of the display shows a countdown in seconds for the current round / pause.
         - During the last three seconds of the round / pause countdown, the user is alerted by short beeps, indicating the end of the round / pause.
