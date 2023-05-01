@@ -1,6 +1,6 @@
 # VHDL Group project 
 ## Timer for circuit workout 
-This is our team's repository for group project consisting of workout timer, programmed in vhdl.
+This is our team's repository for group project consisting of workout timer, programmed in VHDL.
 
 ![IMG_7012](https://user-images.githubusercontent.com/102173814/235366753-1821fee4-356a-424d-b57d-2666117c4c2a.jpg)
 
@@ -32,6 +32,7 @@ On the development board we use:
 
 External devices: 
 - Arduino multifunction shield (we use only buzzer)
+    - The shield is connected via dupont wires to the `JA` header on the Nexys A7 board. Pin 1 is the signal for the buzzer; available 3V3 and GND signals are used for powering the shield.
 
 ## Software description 
 
@@ -42,6 +43,19 @@ External devices:
 - The clock divider module is responsible for generating a clock signal with a frequency of 1 Hz, which is used as a timebase for the timer. The seven-segment display module converts the time value into a format that can be displayed on the seven-segment displays. The RGB LED module controls the color of the RGB LED.
 
 ## User Instructions
+- Upon power-on, the program enters a setup state, where the user can enter the number of rounds and the round and break duration in seconds.
+    - First parameter to be set by the user is the number of rounds indicated on the left-hand side of the display. This is done by pressing the `UP` and `DOWN` buttons on the Nexys A7 development board. After the user sets the desired number of rounds, the `CENTER` button has to be pressed for confirmation.
+    - After confirmation, the left most character on the display changes to the `r` character to indicate the round-time setup state. Again, by using the `UP` and `DOWN` buttons on the Nexys A7 development board, desired round time is being set, this time on the right-hand side of the display.
+    - After confirmation, the left most character on the display changes to the `P` character to indicate the Pause-time setup state. User can, as in previous states, set the pause duration and press the `CENTER` button for final confirmation.
+    - every press of the buttons is also indicated by a beep to provide an audio feedback to the user.
+- The board now enters running state.
+    - The left most character displays either `r` or `P` indicating if the timer is currently in the round or Pause state
+        - Every second of the countdown an LED flashes - red for round and green for Pause to also indicate the current state of the timer.
+    - The number on the left-hand side of the display represents the remaining number of rounds / pauses left.
+    - The number on the right-hand side of the display shows a countdown in seconds for the current round / pause.
+        - During the last three seconds of the round / pause countdown, the user is alerted by short beeps, indicating the end of the round / pause.
+- After the set number of rounds has elapsed, the board enters again the setup state. The setup state can also be entered from the running state by pressing the `RIGHT` button.
+
 
 
 ## References
