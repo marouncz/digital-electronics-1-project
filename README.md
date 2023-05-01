@@ -56,7 +56,7 @@ External devices:
         - During the last three seconds of the round / pause countdown, the user is alerted by short beeps, indicating the end of the round / pause.
 - After the set number of rounds has elapsed, the board enters again the setup state. The setup state can also be entered from the running state by pressing the `RIGHT` button.
 
-
+<img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235537016-29d9d5ed-de63-469d-a65f-e8602b6cf5dd.png">
 
 ## References
 - [Buzzer shield guide](https://www.subsystems.us/arduino-multifunction-shield.html)
