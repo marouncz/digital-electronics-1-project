@@ -42,6 +42,8 @@ External devices:
 
 - The clock divider module is responsible for generating a clock signal with a frequency of 1 Hz, which is used as a timebase for the timer. The seven-segment display module converts the time value into a format that can be displayed on the seven-segment displays. The RGB LED module controls the color of the RGB LED.
 
+<img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235684005-f23715dd-6b48-43a0-a497-4b23c8a8096d.png">
+
 ## User Instructions
 - Upon power-up, the program enters a setup state, where the user can enter the number of rounds and the round and break duration in seconds.
     - First parameter to be set by the user is the number of rounds indicated on the left-hand side of the display. This is done by pressing the `UP` and `DOWN` buttons on the Nexys A7 development board. After the user sets the desired number of rounds, the `CENTER` button has to be pressed for confirmation.
