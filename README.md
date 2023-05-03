@@ -45,6 +45,9 @@ External devices:
 <img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235684005-f23715dd-6b48-43a0-a497-4b23c8a8096d.png">
 
 ## User Instructions
+
+#### [Video demonstration](https://www.youtube.com/watch?v=48f00-5VxmE)
+
 - Upon power-up, the program enters a setup state, where the user can enter the number of rounds and the round and break duration in seconds.
     - First parameter to be set by the user is the number of rounds indicated on the left-hand side of the display. This is done by pressing the `UP` and `DOWN` buttons on the Nexys A7 development board. After the user sets the desired number of rounds, the `CENTER` button has to be pressed for confirmation.
     - After confirmation, the left most character on the display changes to the `r` character to indicate the round-time setup state. Again, by using the `UP` and `DOWN` buttons on the Nexys A7 development board, desired round time is being set, this time on the right-hand side of the display.
@@ -59,8 +62,6 @@ External devices:
 - After the set number of rounds has elapsed, the board enters again the setup state. The setup state can also be entered from the running state by pressing the `RIGHT` button.
 
 <img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235537016-29d9d5ed-de63-469d-a65f-e8602b6cf5dd.png">
-
-### [Video demonstration](https://www.youtube.com/watch?v=48f00-5VxmE)
 
 ## References
 - [Buzzer shield guide](https://www.subsystems.us/arduino-multifunction-shield.html)
