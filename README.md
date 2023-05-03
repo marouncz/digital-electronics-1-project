@@ -60,7 +60,7 @@ External devices:
 
 <img width="50%" height="50%" src="https://user-images.githubusercontent.com/102173814/235537016-29d9d5ed-de63-469d-a65f-e8602b6cf5dd.png">
 
-[### Video demonstration](https://www.youtube.com/watch?v=48f00-5VxmE)
+### [Video demonstration](https://www.youtube.com/watch?v=48f00-5VxmE)
 
 ## References
 - [Buzzer shield guide](https://www.subsystems.us/arduino-multifunction-shield.html)
